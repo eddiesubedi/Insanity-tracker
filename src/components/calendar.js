@@ -39,6 +39,26 @@ var getWeekCalendar = function setupWeekCalendar() {
   });
 }
 
+var getPrevWeekCalendar = function calculatePrevWeek() {
+  function isLastWeekSameAsPrevWeek() {
+    return currWeek[0].date.toDateString() == prevWeek[0].date.toDateString();
+  }
+  function isIt1stWeek() {
+    return currentWeek == 0;
+  }
+
+  if(!isIt1stWeek()) {
+    currentWeek = currentWeek - 1;
+  } else {
+    var currWeek = getWeekCalendar();
+    calendar = getCalendarApi(calendar.previous.month, calendar.previous.year, 0);
+    currentWeek = 4;
+    var prevWeek = getWeekCalendar();
+    currentWeek = isLastWeekSameAsPrevWeek() ? 3 : 4;
+  }
+  return getWeekCalendar();
+}
+
 var getNextWeekCalendar = function calculateNextWeek() {
   function isLastWeekSameAsNextWeek() {
     return currWeek[0].date.toDateString() == nextWeek[0].date.toDateString();
@@ -67,6 +87,7 @@ var getMonth = function getCurrentMonth() {
     short: en.monthNamesShort[month],
   }
 }
+
 var getYear = function getCurrentYear() {
   return calendar.year;
 }
@@ -76,6 +97,7 @@ export function Calendar(startingDate) {
   return {
     getMonthCalendar,
     getWeekCalendar,
+    getPrevWeekCalendar,
     getNextWeekCalendar,
     getMonth,
     getYear,

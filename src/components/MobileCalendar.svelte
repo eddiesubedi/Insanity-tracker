@@ -12,6 +12,12 @@
     month = calendar.getMonth();
     year = calendar.getYear();
   }
+
+  function prev() {
+    weekCalendar = calendar.getPrevWeekCalendar();
+    month = calendar.getMonth();
+    year = calendar.getYear();
+  }
 </script>
 
 <h2 class="text-center">{month.long}, {year}</h2>
@@ -23,7 +29,7 @@
     </div>
   {/each}
 </div>
-<button class="mt-10 border-4 px-5 py-2 bg-[#DFECF5] border-transparent rounded-lg" on:click={next}>Prev</button>
+<button class="mt-10 border-4 px-5 py-2 bg-[#DFECF5] border-transparent rounded-lg" on:click={prev}>Prev</button>
 <button class="mt-10 border-4 px-5 py-2 bg-[#EDE5F2] border-transparent rounded-lg ml-3" on:click={next}>Next</button>
 
 
