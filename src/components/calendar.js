@@ -16,9 +16,9 @@ var _setupCalendar = function setupCalendar(startingDate) {
 }
 
 var _setCurrentWeek = function findCurrentWeekIndex() {
-  calendar.calendar.forEach((weeks, i) => {
-    weeks.forEach(day => {
-      if(day.date.toDateString() == today.toDateString()) {
+  calendar.calendar.forEach(function getWeeks(weeks, i) {
+    weeks.forEach(function setCurrentWeek(day) {
+      if (day.date.toDateString() == today.toDateString()) {
         currentWeek = i;
       }
     })
@@ -30,7 +30,7 @@ var getMonthCalendar = function getCalendar() {
   return calendar.calendar;
 }
 
-var getWeekCalendar = function setupWeekCalendar () {
+var getWeekCalendar = function setupWeekCalendar() {
   var weekCalendar = calendar.calendar[currentWeek];
   return weekCalendar.map(function addAbbreviation(day) {
     day.isToday = day.date.toDateString() == today.toDateString();
@@ -43,11 +43,12 @@ var getNextWeekCalendar = function calculateNextWeek() {
   function isLastWeekSameAsNextWeek() {
     return currWeek[0].date.toDateString() == nextWeek[0].date.toDateString();
   }
+
   function isItThe4thWeek() {
-    return currentWeek != 4;
+    return currentWeek == 4;
   }
 
-  if(isItThe4thWeek()) {
+  if (!isItThe4thWeek()) {
     currentWeek = currentWeek + 1;
   } else {
     var currWeek = getWeekCalendar();
@@ -69,6 +70,7 @@ var getMonth = function getCurrentMonth() {
 var getYear = function getCurrentYear() {
   return calendar.year;
 }
+
 export function Calendar(startingDate) {
   _setupCalendar(startingDate);
   return {
