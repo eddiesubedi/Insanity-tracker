@@ -1,0 +1,37 @@
+{
+	"name": "insanity-tracker",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev --open",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@capacitor/cli": "^4.6.1",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-node": "^1.0.0-next.102",
+		"@sveltejs/adapter-static": "^1.0.0-next.48",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.19",
+		"svelte": "^3.53.1",
+		"svelte-check": "^2.9.2",
+		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.2.4",
+		"typescript": "^4.9.3",
+		"vite": "^3.2.4"
+	},
+	"type": "module",
+	"dependencies": {
+		"@capacitor/android": "^4.6.1",
+		"@capacitor/core": "^4.6.1",
+		"@capacitor/filesystem": "^4.1.4",
+		"@capacitor/preferences": "^4.0.2",
+		"@skolacode/calendar-js": "^1.0.0",
+		"@tailwindcss/forms": "^0.5.3",
+		"svelte-local-storage-store": "^0.3.2"
+	}
+}
