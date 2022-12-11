@@ -4,7 +4,7 @@
 </script>
 
 {#if !$loading}
-<main>
+<main class="m-10 overflow-hidden">
   <slot />
 </main>
 {/if}

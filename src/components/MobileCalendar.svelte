@@ -21,13 +21,23 @@
 </script>
 
 <h2 class="text-center">{month.long}, {year}</h2>
-<div class="flex justify-between mt-2 -mx-3">
-  {#each weekCalendar as week}
-    <div class="{week.isToday ? 'font-bold bg-[#F5F6FA]': ''} flex flex-col items-center py-5 px-3 rounded-lg text-[#283140]">
-      <p>{week.day}</p>
-      <p>{week.weekday}</p>
-    </div>
-  {/each}
+<div class="flex w-[200%] -mx-3">
+  <div class="flex justify-between mt-2 w-full">
+    {#each weekCalendar as week}
+      <div class="{week.isToday ? 'font-bold bg-[#F5F6FA]': ''} flex flex-col items-center py-5 px-3 rounded-lg text-[#283140]">
+        <p>{week.day}</p>
+        <p>{week.weekday}</p>
+      </div>
+    {/each}
+  </div>
+  <div class="flex justify-between mt-2 w-full">
+    {#each weekCalendar as week}
+      <div class="{week.isToday ? 'font-bold bg-[#F5F6FA]': ''} flex flex-col items-center py-5 px-3 rounded-lg text-[#283140]">
+        <p>{week.day}</p>
+        <p>{week.weekday}</p>
+      </div>
+    {/each}
+  </div>
 </div>
 <button class="mt-10 border-4 px-5 py-2 bg-[#DFECF5] border-transparent rounded-lg" on:click={prev}>Prev</button>
 <button class="mt-10 border-4 px-5 py-2 bg-[#EDE5F2] border-transparent rounded-lg ml-3" on:click={next}>Next</button>
